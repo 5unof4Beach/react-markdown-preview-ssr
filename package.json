@@ -1,0 +1,93 @@
+{
+  "name": "nextjs-markdown-preview",
+  "version": "1.0.0",
+  "description": "React component preview markdown text in web browser, optimized for Next.js SSR. Based on @uiw/react-markdown-preview.",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "exports": {
+    "./README.md": "./README.md",
+    "./package.json": "./package.json",
+    "./markdown.css": "./markdown.css",
+    ".": {
+      "import": "./esm/index.js",
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.js"
+    },
+    "./nohighlight": {
+      "import": "./esm/nohighlight.js",
+      "types": "./lib/nohighlight.d.ts",
+      "require": "./lib/nohighlight.js"
+    }
+  },
+  "scripts": {
+    "css:build": "compile-less -d src -o esm",
+    "css:watch": "compile-less -d src -o esm --watch",
+    "css:build:dist": "compile-less -d src --combine markdown.css --rm-global",
+    "build": "npm run build",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "lib",
+    "esm",
+    "nohighlight.d.ts",
+    "markdown.css",
+    "src/**/*.{ts,tsx,less}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:5unof4Beach/react-markdown-preview-ssr.git"
+  },
+  "keywords": [
+    "react",
+    "markdown",
+    "prismjs",
+    "react-markdown",
+    "nextjs",
+    "preview",
+    "typescript"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "next": ">=13.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.2",
+    "@uiw/copy-to-clipboard": "~1.0.12",
+    "react-markdown": "~9.0.1",
+    "rehype-attr": "~3.0.1",
+    "rehype-autolink-headings": "~7.1.0",
+    "rehype-ignore": "^2.0.0",
+    "rehype-prism-plus": "2.0.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-rewrite": "~4.0.0",
+    "rehype-slug": "~6.0.0",
+    "remark-gfm": "~4.0.0",
+    "remark-github-blockquote-alert": "^1.0.0",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "compile-less-cli": "^1.9.0",
+    "tsbb": "^4.1.0",
+    "typescript": "^5.0.0"
+  },
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/nextjs-markdown-preview/issues"
+  },
+  "homepage": "https://github.com/yourusername/nextjs-markdown-preview#readme"
+}
